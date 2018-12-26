@@ -109,6 +109,14 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="leftViewWidth">
                             <real key="value" value="100"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftViewPresentationStyle">
+                            <integer key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftViewBackgroundImage" value="SideController"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftViewEnabled" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="rightViewPresentationStyle">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="9zz-qI-KRh" kind="custom" identifier="root" customClass="LGSideMenuSegue" id="laz-yR-l4P"/>
@@ -119,16 +127,16 @@
             </objects>
             <point key="canvasLocation" x="1068" y="191"/>
         </scene>
-        <!--Right View Controller-->
+        <!--Left View Controller-->
         <scene sceneID="ZoH-pJ-abw">
             <objects>
-                <tableViewController storyboardIdentifier="RightViewController" id="Xgd-IS-GJp" customClass="RightViewController" customModule="itmo_dlc_app" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RightViewController" id="Xgd-IS-GJp" customClass="LeftViewController" customModule="itmo_dlc_app" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="F0H-Ar-XaF">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="2dJ-at-8Sp" customClass="RightViewCell" customModule="LGSideMenuControllerDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="2dJ-at-8Sp" customClass="LeftViewCell" customModule="itmo_dlc_app">
                                 <rect key="frame" x="0.0" y="28" width="100" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2dJ-at-8Sp" id="eBj-qN-5K5">
@@ -380,4 +388,7 @@
             <point key="canvasLocation" x="1783" y="-537"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SideController" width="1024" height="1024"/>
+    </resources>
 </document>

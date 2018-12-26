@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class RightViewCell: UITableViewCell {
+class LeftViewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var separatorView: UIView!

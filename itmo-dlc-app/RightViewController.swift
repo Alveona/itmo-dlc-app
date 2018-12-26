@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class RightViewController: UITableViewController {
+class LeftViewController: UITableViewController {
     
     private let titlesArray = ["Open Left View",
                                "",
@@ -49,7 +49,7 @@ class RightViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RightViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LeftViewCell
         
         cell.titleLabel.text = titlesArray[indexPath.row]
         cell.titleLabel.font = UIFont.boldSystemFont(ofSize: indexPath.row == 0 ? 15.0 : 30.0)
@@ -69,11 +69,11 @@ class RightViewController: UITableViewController {
         let mainViewController = UIApplication.shared.delegate!.window!!.rootViewController! as! MainViewController
         
         if indexPath.row == 0 {
-            if mainViewController.isRightViewAlwaysVisibleForCurrentOrientation {
+            if mainViewController.isLeftViewAlwaysVisibleForCurrentOrientation {
                 mainViewController.showLeftView(animated: true, completionHandler: nil)
             }
             else {
-                mainViewController.hideRightView(animated: true, completionHandler: {
+                mainViewController.hideLeftView(animated: true, completionHandler: {
                     mainViewController.showLeftView(animated: true, completionHandler: nil)
                 })
             }
@@ -86,7 +86,7 @@ class RightViewController: UITableViewController {
             let navigationController = mainViewController.rootViewController as! NavigationController
             navigationController.pushViewController(viewController, animated: true)
             
-            mainViewController.hideRightView(animated: true, completionHandler: nil)
+            mainViewController.hideLeftView(animated: true, completionHandler: nil)
         }
     }
     

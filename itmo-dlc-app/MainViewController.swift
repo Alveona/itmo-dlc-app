@@ -6,16 +6,21 @@
 //  Copyright © 2018 Andrei Vlasov. All rights reserved.
 //
 
+//
+//  MainViewController.swift
+//  LGSideMenuControllerDemo
+//
 import LGSideMenuController
 import UIKit
 
+
 class MainViewController: LGSideMenuController {
     
-    private var type: UInt?
+//    private var type: UInt?
+    private var type : UInt? = 2
     
     func setup(type: UInt) {
-//        self.type = type
-        self.type = 2
+        self.type = type
         
         // -----
         
@@ -29,8 +34,9 @@ class MainViewController: LGSideMenuController {
             // LGSideMenuController fully customizable from storyboard
         }
         else {
-            //leftViewController = LeftViewController()
-            rightViewController = RightViewController()
+            
+            leftViewController = LeftViewController()
+            //leftViewController = RightViewController()
             
             leftViewWidth = 250.0;
             leftViewBackgroundImage = UIImage(named: "imageLeft")
@@ -47,14 +53,14 @@ class MainViewController: LGSideMenuController {
         
         let greenCoverColor = UIColor(red: 0.0, green: 0.1, blue: 0.0, alpha: 0.3)
         let purpleCoverColor = UIColor(red: 0.1, green: 0.0, blue: 0.1, alpha: 0.3)
-        //let regularStyle: UIBlurEffectStyle
+        let regularStyle: UIBlurEffect.Style
         
-//        if #available(iOS 10.0, *) {
-//            regularStyle = .regular
-//        }
-//        else {
-//            regularStyle = .light
-//        }
+        if #available(iOS 10.0, *) {
+            regularStyle = .regular
+        }
+        else {
+            regularStyle = .light
+        }
         
         // -----
         
@@ -63,10 +69,118 @@ class MainViewController: LGSideMenuController {
             leftViewPresentationStyle = .scaleFromBig
             rightViewPresentationStyle = .scaleFromBig
             
+            break
+        case 1:
+            leftViewPresentationStyle = .slideAbove
+            rootViewCoverColorForLeftView = greenCoverColor
+            
+            rightViewPresentationStyle = .slideAbove
+            rootViewCoverColorForRightView = purpleCoverColor
+            
+            break
         case 2:
             leftViewPresentationStyle = .slideBelow
             rightViewPresentationStyle = .slideBelow
-
+            
+            break
+        case 3:
+            leftViewPresentationStyle = .scaleFromLittle
+            rightViewPresentationStyle = .scaleFromLittle
+            
+            break
+        case 4:
+            leftViewPresentationStyle = .scaleFromBig
+            rootViewCoverBlurEffectForLeftView = UIBlurEffect(style: regularStyle)
+            rootViewCoverAlphaForLeftView = 0.8
+            
+            rightViewPresentationStyle = .scaleFromBig
+            rootViewCoverBlurEffectForRightView = UIBlurEffect(style: regularStyle)
+            rootViewCoverAlphaForRightView = 0.8
+            
+            break
+        case 5:
+            leftViewPresentationStyle = .scaleFromBig
+            leftViewCoverBlurEffect = UIBlurEffect(style: .dark)
+            leftViewCoverColor = nil
+            
+            rightViewPresentationStyle = .scaleFromBig
+            rightViewCoverBlurEffect = UIBlurEffect(style: .dark)
+            rightViewCoverColor = nil
+            
+            break
+        case 6:
+            leftViewPresentationStyle = .slideAbove
+            leftViewBackgroundBlurEffect = UIBlurEffect(style: regularStyle)
+            leftViewBackgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.05)
+            rootViewCoverColorForLeftView = greenCoverColor
+            
+            rightViewPresentationStyle = .slideAbove
+            rightViewBackgroundBlurEffect = UIBlurEffect(style: regularStyle)
+            rightViewBackgroundColor = UIColor(red: 1.0, green: 0.0, blue: 1.0, alpha: 0.05)
+            rootViewCoverColorForRightView = purpleCoverColor
+            
+            break
+        case 7:
+            leftViewPresentationStyle = .slideAbove
+            rootViewCoverColorForLeftView = greenCoverColor
+            
+            rightViewPresentationStyle = .slideBelow
+            rightViewAlwaysVisibleOptions = [.onPhoneLandscape, .onPadLandscape]
+            
+            break
+        case 8:
+            leftViewPresentationStyle = .scaleFromBig
+            leftViewStatusBarStyle = .lightContent
+            
+            rightViewPresentationStyle = .scaleFromBig
+            rightViewStatusBarStyle = .lightContent
+            
+            break
+        case 9:
+            swipeGestureArea = .full
+            
+            leftViewPresentationStyle = .scaleFromBig
+            rightViewPresentationStyle = .scaleFromBig
+            
+            break
+        case 10:
+            leftViewPresentationStyle = .scaleFromBig
+            rightViewPresentationStyle = .scaleFromBig
+            
+            break
+        case 11:
+            rootViewLayerBorderWidth = 5.0
+            rootViewLayerBorderColor = .white
+            rootViewLayerShadowRadius = 10.0
+            
+            leftViewSwipeGestureRange = LGSideMenuSwipeGestureRangeMake(0.0, 88.0)
+            leftViewPresentationStyle = .scaleFromBig
+            leftViewAnimationDuration = 1.0
+            leftViewBackgroundColor = UIColor(red: 0.5, green: 0.75, blue: 0.5, alpha: 1.0)
+            leftViewBackgroundImageInitialScale = 1.5
+            leftViewInitialOffsetX = -200.0
+            leftViewInitialScale = 1.5
+            leftViewCoverBlurEffect = UIBlurEffect(style: .dark)
+            leftViewBackgroundImage = nil;
+            
+            rootViewScaleForLeftView = 0.6
+            rootViewCoverColorForLeftView = UIColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 0.3)
+            rootViewCoverBlurEffectForLeftView = UIBlurEffect(style: regularStyle)
+            rootViewCoverAlphaForLeftView = 0.9
+            
+            rightViewSwipeGestureRange = LGSideMenuSwipeGestureRangeMake(88.0, 0.0)
+            rightViewPresentationStyle = .slideAbove
+            rightViewAnimationDuration = 0.25
+            rightViewBackgroundColor = UIColor(red: 0.75, green: 0.5, blue: 0.75, alpha: 1.0)
+            rightViewLayerBorderWidth = 3.0
+            rightViewLayerBorderColor = .black
+            rightViewLayerShadowRadius = 10.0
+            
+            rootViewCoverColorForRightView = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.3)
+            rootViewCoverBlurEffectForRightView = UIBlurEffect(style: regularStyle)
+            rootViewCoverAlphaForRightView = 0.9
+            
+            break
         default:
             break
         }
@@ -83,19 +197,18 @@ class MainViewController: LGSideMenuController {
     override func rightViewWillLayoutSubviews(with size: CGSize) {
         super.rightViewWillLayoutSubviews(with: size)
         
-//        if (!isRightViewStatusBarHidden ||
-//            (rightViewAlwaysVisibleOptions.contains(.onPadLandscape) &&
-//                UI_USER_INTERFACE_IDIOM() == .pad &&
-//                UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation))) {
-//            rightView?.frame = CGRect(x: 0.0, y: 20.0, width: size.width, height: size.height - 20.0)
-//        }
+        if (!isRightViewStatusBarHidden ||
+            (rightViewAlwaysVisibleOptions.contains(.onPadLandscape) &&
+                UI_USER_INTERFACE_IDIOM() == .pad &&
+                UIApplication.shared.statusBarOrientation.isLandscape)) {
+            rightView?.frame = CGRect(x: 0.0, y: 20.0, width: size.width, height: size.height - 20.0)
+        }
     }
     
     override var isLeftViewStatusBarHidden: Bool {
         get {
             if (type == 8) {
-                //return UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == .phone
-                return false
+                return UIApplication.shared.statusBarOrientation.isLandscape && UI_USER_INTERFACE_IDIOM() == .phone
             }
             
             return super.isLeftViewStatusBarHidden
@@ -109,8 +222,7 @@ class MainViewController: LGSideMenuController {
     override var isRightViewStatusBarHidden: Bool {
         get {
             if (type == 8) {
-//                return UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == .phone
-                return false
+                return UIApplication.shared.statusBarOrientation.isLandscape && UI_USER_INTERFACE_IDIOM() == .phone
             }
             
             return super.isRightViewStatusBarHidden
