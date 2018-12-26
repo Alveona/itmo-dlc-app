@@ -1,0 +1,6 @@
+framework module Pods_itmo_dlc_app {
+  umbrella header "Pods-itmo-dlc-app-umbrella.h"
+
+  export *
+  module * { export * }
+}
