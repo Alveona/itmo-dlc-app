@@ -24,7 +24,7 @@ class TableViewController : UITableViewController
 
         refreshControl = UIRefreshControl()
         //refreshControl?.attributedTitle = NSAttributedString(string: "Идет обновление...")
-        refreshControl?.addTarget(self, action: "refresh", for: UIControl.Event.valueChanged)
+        refreshControl?.addTarget(self, action: #selector(TableViewController.refresh), for: UIControl.Event.valueChanged)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,30 +64,29 @@ class TableViewController : UITableViewController
     }
     
     
-    // refresh async https://habr.com/post/228881/
-    func refresh(sender: AnyObject)
-    {
-        sleep(1)
+
+    // ASYNC : https://www.electrollama.net/blog/2017/1/6/updating-ui-from-background-threads-simple-threading-in-swift-3-for-ios
+    func BG(_ block: @escaping ()->Void) {
+        DispatchQueue.global(qos: .default).async(execute: block)
     }
-//    func refresh(sender:AnyObject) {
-//        refreshBegin(newtext: "Refresh",
-//                     refreshEnd: {(x:Int) -> () in
-//                        self.tableView.reloadData()
-//                        self.refreshControl.endRefreshing()
-//        })
-//    }
-//
-//    func refreshBegin(newtext:String, refreshEnd:(Int) -> ()) {
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-//            println("refreshing")
-//            //self.text = newtext
-//            sleep(2)
-//
-//            dispatch_async(dispatch_get_main_queue()) {
-//                refreshEnd(0)
-//            }
-//        }
-//    }
     
+    @objc func refresh(sender:AnyObject) {
+        refreshBegin(newtext: "Refresh",
+                     refreshEnd: {() -> () in
+                        self.tableView.reloadData()
+                        self.refreshControl!.endRefreshing()
+        })
+    }
+//
+    func refreshBegin(newtext:String, refreshEnd:@escaping () -> ()) {
+        BG {
+            //sleep(2)
+            for i in 0..<100000 // testing async
+            {
+                print(i)
+            }
+        }
+        refreshEnd()
+    }
     
 }

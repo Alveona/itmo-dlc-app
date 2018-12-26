@@ -21,6 +21,7 @@
 		AA60175D21D3001100DA750E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA60175C21D3001100DA750E /* TableViewController.swift */; };
 		AA60175F21D3040000DA750E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA60175E21D3040000DA750E /* TableViewCell.swift */; };
 		AA60176121D38D5100DA750E /* SubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA60176021D38D5100DA750E /* SubjectTableViewController.swift */; };
+		AA60176321D3AA0700DA750E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA60176221D3AA0700DA750E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		AA60175C21D3001100DA750E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AA60175E21D3040000DA750E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AA60176021D38D5100DA750E /* SubjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewController.swift; sourceTree = "<group>"; };
+		AA60176221D3AA0700DA750E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F22DE01EFB12212B2C9F09A0 /* Pods_itmo_dlc_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itmo_dlc_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				AA60175C21D3001100DA750E /* TableViewController.swift */,
 				AA60175E21D3040000DA750E /* TableViewCell.swift */,
 				AA60176021D38D5100DA750E /* SubjectTableViewController.swift */,
+				AA60176221D3AA0700DA750E /* LoginViewController.swift */,
 			);
 			path = "itmo-dlc-app";
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				AA60175F21D3040000DA750E /* TableViewCell.swift in Sources */,
 				AA60175B21D2F8E700DA750E /* NavigationController.swift in Sources */,
 				AA60175521D2F54F00DA750E /* RightViewCell.swift in Sources */,
+				AA60176321D3AA0700DA750E /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
